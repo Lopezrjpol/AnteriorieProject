@@ -12,13 +12,13 @@ export default class GameScreen extends React.Component {
       urlBook4: require("./images/book.png"),
       urlBook5: require("./images/book.png"),
       urlBook6: require("./images/book.png"),
+      urlShelf1: require("./images/shelf.png"),
       disabled1: false,
       disabled2: false,
       disabled3: false,
       disabled4: false,
       disabled5: false,
       disabled6: false,
-      bookCount:0,
       featherCount: 0,
       count: 0,
       coins: 0,
@@ -73,13 +73,15 @@ export default class GameScreen extends React.Component {
   }
 
   coinsGained = () => {
-    if (this.state.featherCount == 5 && this.state.bookCount == 1 ){
+    if (this.state.featherCount == 6){
+      this.setState({ coins: this.state.coins + 2000});
+    } else if (this.state.featherCount == 5 ){
       this.setState({ coins: this.state.coins + 1000});
-    } else if (this.state.featherCount == 4 || this.state.bookCount == 2){
+    } else if (this.state.featherCount == 4 ){
       this.setState({ coins: this.state.coins + 500});
-    } else if (this.state.featherCount == 3 || this.state.bookCount == 3){
+    } else if (this.state.featherCount == 3 ){
       this.setState({ coins: this.state.coins + 200});
-    }  else if (this.state.featherCountCount == 2 || this.state.bookCount == 4){
+    }  else if (this.state.featherCountCount == 2){
       this.setState({ coins: this.state.coins + 20});
     } 
 }
@@ -94,13 +96,13 @@ export default class GameScreen extends React.Component {
       urlBook4: require("./images/book.png"),
       urlBook5: require("./images/book.png"),
       urlBook6: require("./images/book.png"),
+      urlShelf1: require("./images/shelf.png"),
       disabled1: false,
       disabled2: false,
       disabled3: false,
       disabled4: false,
       disabled5: false,
       disabled6: false,
-      bookCount:0,
       featherCount: 0,
       count: 0,
       scoreBoard: false,
@@ -118,10 +120,8 @@ export default class GameScreen extends React.Component {
                   });
     this.showScore();
     
-    if (random1 === 1 || random1 === 2 || random1 === 3) {
+    if (random1 === 1 || random1 === 2 || random1 === 3 || random1 === 6 || random1 === 9) {
       this.setState({ featherCount: this.state.featherCount + 0})
-    } else if (random1 === 4 || random1 === 5) {
-      this.setState({ bookCount: this.state.bookCount + 1})
     } else {
       this.setState({ featherCount: this.state.featherCount + 1})
     }
@@ -132,101 +132,97 @@ export default class GameScreen extends React.Component {
     this.setState({ urlBook2:this.getImage(random2),
                     disabled2: true,
                     count: this.state.count + 1, 
-                 });        
-    this.showScore();
+                  });
+              this.showScore();
 
-    if (random2 === 1 || random2 === 2 || random2 === 3) {
-      this.setState({ featherCount: this.state.featherCount + 0})
-    } else if (random2 === 4 || random2 === 5) {
-      this.setState({ bookCount: this.state.bookCount + 1})
-    } else {
-      this.setState({ featherCount: this.state.featherCount + 1})
-    }
-  }
+              if (random2 === 1 || random2 === 2 || random2 === 3 || random2 === 6 || random2 === 9) {
+              this.setState({ featherCount: this.state.featherCount + 0})
+              } else {
+              this.setState({ featherCount: this.state.featherCount + 1})
+              }
+              }
 
   showBook3 = () => {
     let random3 = this.getRandomNumber();
     this.setState({ urlBook3:this.getImage(random3),
-                    disabled3: true,
-                    count: this.state.count + 1, 
+                  disabled3: true,
+                  count: this.state.count + 1, 
                 });
-    this.showScore();
-    if (random3 === 1 || random3 === 2 || random3 === 3) {
-      this.setState({ featherCount: this.state.featherCount + 0})
-    } else if (random3 === 4 || random3 === 5) {
-      this.setState({ bookCount: this.state.bookCount + 1})
-    } else  {
-      this.setState({ featherCount: this.state.featherCount + 1})
-    }
-  }
+            this.showScore();
+
+            if (random3 === 1 || random3 === 2 || random3 === 3 || random3 === 6 || random3 === 9) {
+            this.setState({ featherCount: this.state.featherCount + 0})
+            } else {
+            this.setState({ featherCount: this.state.featherCount + 1})
+            }
+            }
 
   showBook4 = () => {
     let random4 = this.getRandomNumber();
     this.setState({ urlBook4:this.getImage(random4),
                     disabled4: true,
                     count: this.state.count + 1, 
-                });
-    this.showScore();
-    if (random4 === 1 || random4 === 2 || random4 === 3) {
-      this.setState({ featherCount: this.state.featherCount + 0})
-    } else if (random4 === 4 || random4 === 5) {
-      this.setState({ bookCount: this.state.bookCount + 1})
-    } else  {
-      this.setState({ featherCount: this.state.featherCount + 1})
-    }
-  }
+                  });
+              this.showScore();
+  
+              if (random4 === 1 || random4 === 2 || random4 === 3 || random4 === 6 || random4 === 9) {
+              this.setState({ featherCount: this.state.featherCount + 0})
+              } else {
+              this.setState({ featherCount: this.state.featherCount + 1})
+              }
+              }
 
   showBook5 = () => {
     let random5 = this.getRandomNumber();
     this.setState({ urlBook5:this.getImage(random5),
                     disabled5: true,
                     count: this.state.count + 1, 
-                });
-    this.showScore();
-    if (random5 === 1 || random5 === 2 || random5 === 3) {
-      this.setState({ featherCount: this.state.featherCount + 0})
-    } else if (random5 === 4 || random5 === 5) {
-      this.setState({ bookCount: this.state.bookCount + 1})
-    } else  {
-      this.setState({ featherCount: this.state.featherCount + 1})
-    }
-  }
+                  });
+              this.showScore();
+  
+              if (random5 === 1 || random5 === 2 || random5 === 3 || random5 === 6 || random5 === 9) {
+              this.setState({ featherCount: this.state.featherCount + 0})
+              } else {
+              this.setState({ featherCount: this.state.featherCount + 1})
+              }
+              }
 
   showBook6 = () => {
     let random6 = this.getRandomNumber();
     this.setState({ urlBook6:this.getImage(random6),
                     disabled6: true,
                     count: this.state.count + 1, 
-                 });
-    this.showScore();
-    if (random6 === 1 || random6 === 2 || random6 === 3) {
-      this.setState({ featherCount: this.state.featherCount + 0})
-    } else if (random6 === 4 || random6 === 5) {
-      this.setState({ bookCount: this.state.bookCount + 1})
-    } else {
-      this.setState({ featherCount: this.state.featherCount + 1})
-    }
-  }
+                  });
+              this.showScore();
+  
+              if (random6 === 1 || random6 === 2 || random6 === 3 || random6 === 6 || random6 === 9) {
+              this.setState({ featherCount: this.state.featherCount + 0})
+              } else {
+              this.setState({ featherCount: this.state.featherCount + 1})
+              }
+              }
 
   
 // -------------------------------------------------------------------------------
   render() {
     const { navigate } = this.props.navigation;
     let totalPoints = 0;
-    if (this.state.featherCount == 5  && this.state.bookCount == 1) {
+    if (this.state.featherCount == 6  ) {
+      totalPoints = 2000;
+    } else if (this.state.featherCount == 5 ) {
       totalPoints = 1000;
-    } else if (this.state.featherCount == 4 || this.state.bookCount == 2) {
+    } else if (this.state.featherCount == 4 ) {
       totalPoints = 500;
-    } else if (this.state.featherCount == 3 || this.state.bookCount == 3) {
+    } else if (this.state.featherCount == 3 ) {
       totalPoints = 200;
-    } else if (this.state.featherCount == 2 || this.state.bookCount ==  4) {
+    } else if (this.state.featherCount == 2 ) {
       totalPoints = 20;
     } else {
       totalPoints = totalPoints;
     }
       return (
         
-        <ImageBackground source={require("./images/bg5.jpg")} style={styles.backgroundImage}>
+        <ImageBackground source={require("./images/bgred.jpg")} style={styles.backgroundImage}>
          
          <View style={styles.topRightScore}>
            <Image style={styles.coinImage} source={require('./images/coin1.webp')}></Image>
@@ -242,10 +238,17 @@ export default class GameScreen extends React.Component {
               <ImageBackground source={require("./images/victory.png")} style={styles.backgroundImage} >
                   <View>
                       <Text style={styles.topText}>{this.state.message} {totalPoints}</Text>
-                    
-                          <TouchableOpacity onPress={() =>navigate('HomeScreen')}>
-                          <Image source={require('./images/close.png')} style={styles.exitButton}></Image>
+
+                          <View style= {styles.boxesRow}>
+
+                          <TouchableOpacity onPress={this.playAgain}>
+                          <Image source={require('./images/again.png')} style={styles.exitButton}></Image>
                           </TouchableOpacity>
+
+                          <TouchableOpacity onPress={() =>navigate('HomeScreen')}>
+                          <Image source={require('./images/menu.png')} style={styles.exitButton}></Image>
+                          </TouchableOpacity>
+                          </View>
                           </View>
                   </ImageBackground>
               </View>
@@ -267,6 +270,14 @@ export default class GameScreen extends React.Component {
             </View>
           </View>
 
+          <View>
+              
+                <Image style={styles.shelfImage} source={this.state.urlShelf1}></Image>
+              
+            </View>
+          
+
+
 
           <View style= {styles.boxesRow}>
             <View style= {styles.boxesSpace}>
@@ -282,6 +293,12 @@ export default class GameScreen extends React.Component {
             </View>
           </View>
 
+          <View>
+              
+              <Image style={styles.shelfImage} source={this.state.urlShelf1}></Image>
+            
+          </View>
+        
 
           <View style= {styles.boxesRow}>
             <View style= {styles.boxesSpace}>
@@ -296,6 +313,13 @@ export default class GameScreen extends React.Component {
               </TouchableOpacity>
             </View>
           </View>
+
+          <View>
+              
+              <Image style={styles.shelfImage} source={this.state.urlShelf1}></Image>
+            
+          </View>
+        
           
           </View>
         </ImageBackground>
@@ -306,14 +330,17 @@ export default class GameScreen extends React.Component {
 const styles = StyleSheet.create({
   backgroundImage: {
     flex: 1,
-    resizeMode: 'cover',
-    
+    resizeMode: 'cover',  
+  },
+  shelfImage: {
+    width:  400,
+    height: 100,
+    resizeMode: 'contain',
   },
   container: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-  
   },
   modalContainer: {
     backgroundColor: "#000000aa", 
@@ -322,51 +349,28 @@ const styles = StyleSheet.create({
   },
   boxesRow: {
     flexDirection: 'row',
-    
+    alignSelf: 'center',
   },
   boxesSpace: {
     padding: 15,
+    marginBottom: -85,
   },
   boxesImage: {
     width: 160, 
     height: 160,
   },
-  playButton: {
-    marginTop: 30,
-    fontSize: 22,
-    fontWeight: 'bold',
-    backgroundColor: 'white',
-    color: 'black',
-    textAlign: 'center',
-    borderRadius: 20,
-    paddingHorizontal: 25,
-    paddingVertical: 10,
-  },
   exitButton: {
-    marginTop: 130,
-    width: 30,
-    height: 40,
-    alignSelf: 'center',
-    paddingHorizontal: 25,
-    paddingVertical: 10,
-  },
+    width: 130,
+    height: 90,
+    resizeMode: 'contain',
+   },
   topText: {
     textAlign: "center",
+    fontFamily: 'Back to Black Demo',
     color: 'black',
-    fontWeight: 'bold',
-    marginTop: 150,
-    marginBottom: 5,
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  closeText: {
-    backgroundColor: "red",
-    borderRadius: 30,
-    width: 40,
-    padding: 10,
-    marginLeft: 235,
-    textAlign: 'center',
-    color: "white",
+    marginTop: 170,
+    marginBottom: 50,
+    fontSize: 40,
    },
    topRightScore: {
     justifyContent: 'flex-end',

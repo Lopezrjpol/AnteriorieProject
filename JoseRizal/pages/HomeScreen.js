@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     },
     boxesRow: {
       flexDirection: 'row',
-      
+      marginTop: 50,    
     },
     logo2:{
       marginTop: -170,
@@ -47,19 +47,16 @@ const styles = StyleSheet.create({
       resizeMode: "contain"
     },
     playButton: {
-      width: 25,
-      height: 25,
-      
+      width: 200,
+      height: 100,
+      marginLeft: 5,
+      resizeMode: 'contain',
       alignSelf: 'center',
-      paddingHorizontal: 100,
-      paddingVertical: 100,
     },
     howButton: {
-      width: 25,
-      height: 25,
-     
+      width: 200,
+      height: 100,
+      resizeMode: 'contain',
       alignSelf: 'center',
-      paddingHorizontal: 100,
-      paddingVertical: 100,
     },
 });
